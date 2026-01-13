@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="System"?>
+<database>
+    <name>DR</name>
+    <table>
+        <database></database>
+        <name>baseline</name>
+        <ddl>CREATE TABLE baseline (baseline_id integer PRIMARY KEY, meter_id integer REFERENCES meter (id), start_dt text, end_dt text, voltage real, crtd_dt text, crtd_by text, upd_dt text, upd_by text)</ddl>
+        <columns>
+            <column>
+                <name>baseline_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>meter_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES meter (id)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>start_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>end_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>voltage</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>crtd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>crtd_by</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>upd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>upd_by</name>
+                <type>text</type>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>config</name>
+        <ddl>CREATE TABLE config (config_id INTEGER PRIMARY KEY ASC AUTOINCREMENT, config_type text, config_val text)</ddl>
+        <columns>
+            <column>
+                <name>config_id</name>
+                <type>INTEGER</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY ASC AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>config_type</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>config_val</name>
+                <type>text</type>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">event_dt</value>
+                <value column="2">1/30/2022</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">event_dt</value>
+                <value column="2">2/28/2022</value>
+            </row>
+            <row>
+                <value column="0">3</value>
+                <value column="1">event_dt</value>
+                <value column="2">3/30/2022</value>
+            </row>
+            <row>
+                <value column="0">4</value>
+                <value column="1">event_dt</value>
+                <value column="2">4/30/2022</value>
+            </row>
+            <row>
+                <value column="0">5</value>
+                <value column="1">event_dt</value>
+                <value column="2">5/30/2022</value>
+            </row>
+            <row>
+                <value column="0">6</value>
+                <value column="1">event_dt</value>
+                <value column="2">6/30/2022</value>
+            </row>
+            <row>
+                <value column="0">7</value>
+                <value column="1">event_dt</value>
+                <value column="2">7/30/2022</value>
+            </row>
+            <row>
+                <value column="0">8</value>
+                <value column="1">event_dt</value>
+                <value column="2">8/30/2022</value>
+            </row>
+            <row>
+                <value column="0">9</value>
+                <value column="1">event_dt</value>
+                <value column="2">9/30/2022</value>
+            </row>
+            <row>
+                <value column="0">10</value>
+                <value column="1">event_dt</value>
+                <value column="2">10/30/2022</value>
+            </row>
+            <row>
+                <value column="0">11</value>
+                <value column="1">event_dt</value>
+                <value column="2">11/30/2022</value>
+            </row>
+            <row>
+                <value column="0">12</value>
+                <value column="1">event_dt</value>
+                <value column="2">12/30/2022</value>
+            </row>
+            <row>
+                <value column="0">13</value>
+                <value column="1">bill_dt</value>
+                <value column="2">27</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>customer</name>
+        <ddl>CREATE TABLE customer (customer_id integer PRIMARY KEY ASC AUTOINCREMENT, name text, meter_id INTEGER REFERENCES meter (id), account_num INTEGER, phone_number text, cnt_type INTEGER, dr_flag integer)</ddl>
+        <columns>
+            <column>
+                <name>customer_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY ASC AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>name</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>meter_id</name>
+                <type>INTEGER</type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES meter (id)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>account_num</name>
+                <type>INTEGER</type>
+            </column>
+            <column>
+                <name>phone_number</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>cnt_type</name>
+                <type>INTEGER</type>
+            </column>
+            <column>
+                <name>dr_flag</name>
+                <type>integer</type>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">Customer-1</value>
+                <value column="2">66676872</value>
+                <value column="3">1</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">Customer-2</value>
+                <value column="2">66676872</value>
+                <value column="3">1</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">3</value>
+                <value column="1">Customer-3</value>
+                <value column="2">66676872</value>
+                <value column="3">1</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">4</value>
+                <value column="1">Customer-4</value>
+                <value column="2">82458535</value>
+                <value column="3">2</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">5</value>
+                <value column="1">Customer-5</value>
+                <value column="2">82458535</value>
+                <value column="3">2</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">6</value>
+                <value column="1">Customer-6</value>
+                <value column="2">82458535</value>
+                <value column="3">2</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">7</value>
+                <value column="1">Customer-7</value>
+                <value column="2">82458430</value>
+                <value column="3">3</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">8</value>
+                <value column="1">Customer-8</value>
+                <value column="2">82458430</value>
+                <value column="3">3</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">9</value>
+                <value column="1">Customer-9</value>
+                <value column="2">82458402</value>
+                <value column="3">4</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">10</value>
+                <value column="1">Customer-10</value>
+                <value column="2">82458402</value>
+                <value column="3">4</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">11</value>
+                <value column="1">Customer-11</value>
+                <value column="2">82458402</value>
+                <value column="3">4</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">12</value>
+                <value column="1">Customer-12</value>
+                <value column="2">82458402</value>
+                <value column="3">4</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">13</value>
+                <value column="1">Customer-13</value>
+                <value column="2">82458402</value>
+                <value column="3">4</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+            <row>
+                <value column="0">14</value>
+                <value column="1">Customer-14</value>
+                <value column="2">82458402</value>
+                <value column="3">4</value>
+                <value column="4">931-111-1111</value>
+                <value column="5">1</value>
+                <value column="6">0</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>errlog</name>
+        <ddl>CREATE TABLE errlog (id integer PRIMARY KEY, err crtd_dt text, upd_dt text, cutomer_id INTEGER REFERENCES customer (customer_id))</ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>err</name>
+                <type>crtd_dt text</type>
+            </column>
+            <column>
+                <name>upd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>cutomer_id</name>
+                <type>INTEGER</type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES customer (customer_id)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>event</name>
+        <ddl>CREATE TABLE event (event_id integer PRIMARY KEY, evn_num text, evn_nam text, start_dt text, end_dt text, perf real, nomination real, factor real, unadj_credit real, del_load_dist real, adj_nom real, adj_per_fact real, tot_crdt_paid real, est_vec_dem_sav real, event text, credit_rate real, whisl_dem_cost real, crtd_dt text, upd_dt text, meter_id INTEGER REFERENCES meter (id))</ddl>
+        <columns>
+            <column>
+                <name>event_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>evn_num</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>evn_nam</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>start_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>end_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>perf</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>nomination</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>factor</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>unadj_credit</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>del_load_dist</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>adj_nom</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>adj_per_fact</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>tot_crdt_paid</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>est_vec_dem_sav</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>event</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>credit_rate</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>whisl_dem_cost</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>crtd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>upd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>meter_id</name>
+                <type>INTEGER</type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES meter (id)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>meter</name>
+        <ddl>CREATE TABLE meter (id INTEGER PRIMARY KEY ASC AUTOINCREMENT, met_num integer, name TEXT, acc_num INTEGER, actv_dt text, start_dt text, end_dt text, cycle text, voltage real, nomination INTEGER)</ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>INTEGER</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY ASC AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>met_num</name>
+                <type>integer</type>
+            </column>
+            <column>
+                <name>name</name>
+                <type>TEXT</type>
+            </column>
+            <column>
+                <name>acc_num</name>
+                <type>INTEGER</type>
+            </column>
+            <column>
+                <name>actv_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>start_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>end_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>cycle</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>voltage</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>nomination</name>
+                <type>INTEGER</type>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">42510</value>
+                <value column="2">42510-Meigs County BOE Meigs Middle School</value>
+                <value column="3">66676872</value>
+                <value column="4">1/1/2021</value>
+                <value column="5">1/1/2021</value>
+                <value column="6">1/1/2025</value>
+                <value column="7">1</value>
+                <value column="8">100</value>
+                <value column="9">100</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">142510</value>
+                <value column="2">142510-Meigs County BOE Meigs North Elementary</value>
+                <value column="3">82458535</value>
+                <value column="4">1/2/2021</value>
+                <value column="5">1/2/2021</value>
+                <value column="6">1/2/2025</value>
+                <value column="7">1</value>
+                <value column="8">101</value>
+                <value column="9">100</value>
+            </row>
+            <row>
+                <value column="0">3</value>
+                <value column="1">48510</value>
+                <value column="2">48510-Meigs County BOE Meigs South Elementary</value>
+                <value column="3">82458430</value>
+                <value column="4">1/3/2021</value>
+                <value column="5">1/3/2021</value>
+                <value column="6">1/3/2025</value>
+                <value column="7">1</value>
+                <value column="8">102</value>
+                <value column="9">100</value>
+            </row>
+            <row>
+                <value column="0">4</value>
+                <value column="1">154010</value>
+                <value column="2">154010-Cleveland Utilities Water Filtration Plant Dry Valley Road</value>
+                <value column="3">82458402</value>
+                <value column="4">1/4/2021</value>
+                <value column="5">1/4/2021</value>
+                <value column="6">1/4/2025</value>
+                <value column="7">1</value>
+                <value column="8">103</value>
+                <value column="9">400</value>
+            </row>
+            <row>
+                <value column="0">5</value>
+                <value column="1">187510</value>
+                <value column="2">187510-Cleveland Utilities Waste Water Treatment Facility 1860 OLD LOWER RIVER RD</value>
+                <value column="3">83425325</value>
+                <value column="4">1/5/2021</value>
+                <value column="5">1/5/2021</value>
+                <value column="6">1/5/2025</value>
+                <value column="7">1</value>
+                <value column="8">104</value>
+                <value column="9">350</value>
+            </row>
+            <row>
+                <value column="0">6</value>
+                <value column="1">403556200</value>
+                <value column="2">403556200-Cleveland Utilities River Station 538 HIWASSEE DR</value>
+                <value column="3">98828741</value>
+                <value column="4">1/6/2021</value>
+                <value column="5">1/6/2021</value>
+                <value column="6">1/6/2025</value>
+                <value column="7">1</value>
+                <value column="8">105</value>
+                <value column="9">500</value>
+            </row>
+            <row>
+                <value column="0">7</value>
+                <value column="1">404117700</value>
+                <value column="2">404117700-Hiwassee Utilities Barge 3973 CHATATA VALLEY ROAD (BARGE PUMP)</value>
+                <value column="3">16335457</value>
+                <value column="4">1/7/2021</value>
+                <value column="5">1/7/2021</value>
+                <value column="6">1/7/2025</value>
+                <value column="7">1</value>
+                <value column="8">106</value>
+                <value column="9">250</value>
+            </row>
+            <row>
+                <value column="0">8</value>
+                <value column="1">155010</value>
+                <value column="2">155010-Hiwassee Utilities Water Treatment Plant 3973 CHATATA VALLEY ROAD (WATER PLANT)</value>
+                <value column="3">83692509</value>
+                <value column="4">1/8/2021</value>
+                <value column="5">1/8/2021</value>
+                <value column="6">1/8/2025</value>
+                <value column="7">1</value>
+                <value column="8">107</value>
+                <value column="9">450</value>
+            </row>
+            <row>
+                <value column="0">9</value>
+                <value column="1">194510</value>
+                <value column="2">194510-Walker Valley High School Charleston</value>
+                <value column="3">83692538</value>
+                <value column="4">1/9/2021</value>
+                <value column="5">1/9/2021</value>
+                <value column="6">1/9/2025</value>
+                <value column="7">1</value>
+                <value column="8">108</value>
+                <value column="9">50</value>
+            </row>
+            <row>
+                <value column="0">10</value>
+                <value column="1">400595800</value>
+                <value column="2">400595800-City of Crossville HIGH SVR PUMPS -963 CITY LAKE RD</value>
+                <value column="3">83425950</value>
+                <value column="4">1/10/2021</value>
+                <value column="5">1/10/2021</value>
+                <value column="6">1/10/2025</value>
+                <value column="7">1</value>
+                <value column="8">109</value>
+                <value column="9">200</value>
+            </row>
+            <row>
+                <value column="0">11</value>
+                <value column="1">400123700</value>
+                <value column="2">400123700-City of Crossville 109 HOLIDAY DR (HIGH SERVICE PUMPS)</value>
+                <value column="3">83425960</value>
+                <value column="4">1/11/2021</value>
+                <value column="5">1/11/2021</value>
+                <value column="6">1/11/2025</value>
+                <value column="7">1</value>
+                <value column="8">110</value>
+                <value column="9">200</value>
+            </row>
+            <row>
+                <value column="0">12</value>
+                <value column="1">391110</value>
+                <value column="2">391110-City of Crossville WWTP 468 SPARTA HWY/SEWER PL</value>
+                <value column="3">96375911</value>
+                <value column="4">1/12/2021</value>
+                <value column="5">1/12/2021</value>
+                <value column="6">1/12/2025</value>
+                <value column="7">1</value>
+                <value column="8">111</value>
+                <value column="9">150</value>
+            </row>
+            <row>
+                <value column="0">13</value>
+                <value column="1">380110</value>
+                <value column="2">380110-Tap Publishing Company 174 FOURTH STREET, Crossville</value>
+                <value column="3">98828743</value>
+                <value column="4">1/13/2021</value>
+                <value column="5">1/13/2021</value>
+                <value column="6">1/13/2025</value>
+                <value column="7">1</value>
+                <value column="8">112</value>
+                <value column="9">300</value>
+            </row>
+            <row>
+                <value column="0">14</value>
+                <value column="1">255010</value>
+                <value column="2">255010-Polk County BOE South Polk Elementary</value>
+                <value column="3">66735042</value>
+                <value column="4">1/14/2021</value>
+                <value column="5">1/14/2021</value>
+                <value column="6">1/14/2025</value>
+                <value column="7">1</value>
+                <value column="8">113</value>
+                <value column="9">100</value>
+            </row>
+            <row>
+                <value column="0">15</value>
+                <value column="1">400598000</value>
+                <value column="2">400598000-Polk County BOE Polk County High School</value>
+                <value column="3">82458544</value>
+                <value column="4">1/15/2021</value>
+                <value column="5">1/15/2021</value>
+                <value column="6">1/15/2025</value>
+                <value column="7">1</value>
+                <value column="8">114</value>
+                <value column="9">100</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>predictions</name>
+        <ddl>CREATE TABLE predictions (event_id integer PRIMARY KEY, evn_num text, evn_nam text, start_dt text, end_dt text, perf real, nomination real, factor real, unadj_credit real, del_load_dist real, adj_nom real, adj_per_fact real, tot_crdt_paid real, est_vec_dem_sav real, event text, credit_rate real, whisl_dem_cost real, crtd_dt text, upd_dt text, customer_id INTEGER REFERENCES customer (customer_id))</ddl>
+        <columns>
+            <column>
+                <name>event_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>evn_num</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>evn_nam</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>start_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>end_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>perf</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>nomination</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>factor</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>unadj_credit</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>del_load_dist</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>adj_nom</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>adj_per_fact</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>tot_crdt_paid</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>est_vec_dem_sav</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>event</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>credit_rate</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>whisl_dem_cost</name>
+                <type>real</type>
+            </column>
+            <column>
+                <name>crtd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>upd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>customer_id</name>
+                <type>INTEGER</type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES customer (customer_id)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>rawdata</name>
+        <ddl>CREATE TABLE rawdata(id integer, type text, data blob)</ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+            </column>
+            <column>
+                <name>type</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>data</name>
+                <type>blob</type>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>ven</name>
+        <ddl>CREATE TABLE ven (ven_id integer PRIMARY KEY, crtd_dt text, upd_dt text, vtn_id REFERENCES vtn (vtn_id))</ddl>
+        <columns>
+            <column>
+                <name>ven_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>crtd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>upd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>vtn_id</name>
+                <type></type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES vtn (vtn_id)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>vtn</name>
+        <ddl>CREATE TABLE vtn(vtn_id integer primary key, crtd_dt text,upd_dt text)</ddl>
+        <columns>
+            <column>
+                <name>vtn_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>primary key</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>crtd_dt</name>
+                <type>text</type>
+            </column>
+            <column>
+                <name>upd_dt</name>
+                <type>text</type>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+</database>

@@ -1,0 +1,947 @@
+--
+-- File generated with SQLiteStudio v3.3.3 on Tue Jan 4 20:40:09 2022
+--
+-- Text encoding used: System
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: baseline
+DROP TABLE IF EXISTS baseline;
+
+CREATE TABLE baseline (
+    baseline_id INTEGER PRIMARY KEY,
+    meter_id    INTEGER REFERENCES meter (id),
+    start_dt    TEXT,
+    end_dt      TEXT,
+    voltage     REAL,
+    crtd_dt     TEXT,
+    crtd_by     TEXT,
+    upd_dt      TEXT,
+    upd_by      TEXT
+);
+
+
+-- Table: config
+DROP TABLE IF EXISTS config;
+
+CREATE TABLE config (
+    config_id   [INTEGER PRIMARY_KEY],
+    config_type TEXT,
+    config_val  TEXT
+);
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       1,
+                       'event_dt',
+                       '1/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       9,
+                       'event_dt',
+                       '9/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       8,
+                       'event_dt',
+                       '8/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       7,
+                       'event_dt',
+                       '7/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       6,
+                       'event_dt',
+                       '6/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       5,
+                       'event_dt',
+                       '5/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       4,
+                       'event_dt',
+                       '4/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       3,
+                       'event_dt',
+                       '3/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       10,
+                       'event_dt',
+                       '10/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       2,
+                       'event_dt',
+                       '2/28'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       11,
+                       'event_dt',
+                       '11/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       12,
+                       'event_dt',
+                       '12/30'
+                   );
+
+INSERT INTO config (
+                       config_id,
+                       config_type,
+                       config_val
+                   )
+                   VALUES (
+                       13,
+                       'bill_dt',
+                       '27'
+                   );
+
+
+-- Table: customer
+DROP TABLE IF EXISTS customer;
+
+CREATE TABLE customer (
+    customer_id  INTEGER PRIMARY KEY ASC AUTOINCREMENT,
+    name         TEXT,
+    meter_id     INTEGER REFERENCES meter (id),
+    account_num  INTEGER,
+    phone_number TEXT,
+    cnt_type     INTEGER,
+    dr_flag      INTEGER
+);
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         1,
+                         'Customer-1',
+                         66676872,
+                         1,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         2,
+                         'Customer-2',
+                         66676872,
+                         1,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         3,
+                         'Customer-3',
+                         66676872,
+                         1,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         4,
+                         'Customer-4',
+                         82458535,
+                         2,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         5,
+                         'Customer-5',
+                         82458535,
+                         2,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         6,
+                         'Customer-6',
+                         82458535,
+                         2,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         7,
+                         'Customer-7',
+                         82458430,
+                         3,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         8,
+                         'Customer-8',
+                         82458430,
+                         3,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         9,
+                         'Customer-9',
+                         82458402,
+                         4,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         10,
+                         'Customer-10',
+                         82458402,
+                         4,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         11,
+                         'Customer-11',
+                         82458402,
+                         4,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         12,
+                         'Customer-12',
+                         82458402,
+                         4,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         13,
+                         'Customer-13',
+                         82458402,
+                         4,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+INSERT INTO customer (
+                         customer_id,
+                         name,
+                         meter_id,
+                         account_num,
+                         phone_number,
+                         cnt_type,
+                         dr_flag
+                     )
+                     VALUES (
+                         14,
+                         'Customer-14',
+                         82458402,
+                         4,
+                         '931-111-1111',
+                         1,
+                         0
+                     );
+
+
+-- Table: errlog
+DROP TABLE IF EXISTS errlog;
+
+CREATE TABLE errlog (
+    id         INTEGER        PRIMARY KEY,
+    err        [CRTD_DT TEXT],
+    upd_dt     TEXT,
+    cutomer_id INTEGER        REFERENCES customer (customer_id) 
+);
+
+
+-- Table: event
+DROP TABLE IF EXISTS event;
+
+CREATE TABLE event (
+    event_id        INTEGER PRIMARY KEY,
+    evn_num         TEXT,
+    evn_nam         TEXT,
+    start_dt        TEXT,
+    end_dt          TEXT,
+    perf            REAL,
+    nomination      REAL,
+    factor          REAL,
+    unadj_credit    REAL,
+    del_load_dist   REAL,
+    adj_nom         REAL,
+    adj_per_fact    REAL,
+    tot_crdt_paid   REAL,
+    est_vec_dem_sav REAL,
+    event           TEXT,
+    credit_rate     REAL,
+    whisl_dem_cost  REAL,
+    crtd_dt         TEXT,
+    upd_dt          TEXT,
+    meter_id        INTEGER REFERENCES meter (id) 
+);
+
+
+-- Table: meter
+DROP TABLE IF EXISTS meter;
+
+CREATE TABLE meter (
+    id         INTEGER PRIMARY KEY ASC AUTOINCREMENT,
+    met_num    INTEGER,
+    name       TEXT,
+    acc_num    INTEGER,
+    actv_dt    TEXT,
+    start_dt   TEXT,
+    end_dt     TEXT,
+    cycle      TEXT,
+    voltage    REAL,
+    nomination INTEGER
+);
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      1,
+                      42510,
+                      '42510-Meigs County BOE Meigs Middle School',
+                      66676872,
+                      '1/1/2021',
+                      '1/1/2021',
+                      '1/1/2025',
+                      '1',
+                      100.0,
+                      100
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      2,
+                      142510,
+                      '142510-Meigs County BOE Meigs North Elementary',
+                      82458535,
+                      '1/2/2021',
+                      '1/2/2021',
+                      '1/2/2025',
+                      '1',
+                      101.0,
+                      100
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      3,
+                      48510,
+                      '48510-Meigs County BOE Meigs South Elementary',
+                      82458430,
+                      '1/3/2021',
+                      '1/3/2021',
+                      '1/3/2025',
+                      '1',
+                      102.0,
+                      100
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      4,
+                      154010,
+                      '154010-Cleveland Utilities Water Filtration Plant Dry Valley Road',
+                      82458402,
+                      '1/4/2021',
+                      '1/4/2021',
+                      '1/4/2025',
+                      '1',
+                      103.0,
+                      400
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      5,
+                      187510,
+                      '187510-Cleveland Utilities Waste Water Treatment Facility 1860 OLD LOWER RIVER RD',
+                      83425325,
+                      '1/5/2021',
+                      '1/5/2021',
+                      '1/5/2025',
+                      '1',
+                      104.0,
+                      350
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      6,
+                      403556200,
+                      '403556200-Cleveland Utilities River Station 538 HIWASSEE DR',
+                      98828741,
+                      '1/6/2021',
+                      '1/6/2021',
+                      '1/6/2025',
+                      '1',
+                      105.0,
+                      500
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      7,
+                      404117700,
+                      '404117700-Hiwassee Utilities Barge 3973 CHATATA VALLEY ROAD (BARGE PUMP)',
+                      16335457,
+                      '1/7/2021',
+                      '1/7/2021',
+                      '1/7/2025',
+                      '1',
+                      106.0,
+                      250
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      8,
+                      155010,
+                      '155010-Hiwassee Utilities Water Treatment Plant 3973 CHATATA VALLEY ROAD (WATER PLANT)',
+                      83692509,
+                      '1/8/2021',
+                      '1/8/2021',
+                      '1/8/2025',
+                      '1',
+                      107.0,
+                      450
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      9,
+                      194510,
+                      '194510-Walker Valley High School Charleston',
+                      83692538,
+                      '1/9/2021',
+                      '1/9/2021',
+                      '1/9/2025',
+                      '1',
+                      108.0,
+                      50
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      10,
+                      400595800,
+                      '400595800-City of Crossville HIGH SVR PUMPS -963 CITY LAKE RD',
+                      83425950,
+                      '1/10/2021',
+                      '1/10/2021',
+                      '1/10/2025',
+                      '1',
+                      109.0,
+                      200
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      11,
+                      400123700,
+                      '400123700-City of Crossville 109 HOLIDAY DR (HIGH SERVICE PUMPS)',
+                      83425960,
+                      '1/11/2021',
+                      '1/11/2021',
+                      '1/11/2025',
+                      '1',
+                      110.0,
+                      200
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      12,
+                      391110,
+                      '391110-City of Crossville WWTP 468 SPARTA HWY/SEWER PL',
+                      96375911,
+                      '1/12/2021',
+                      '1/12/2021',
+                      '1/12/2025',
+                      '1',
+                      111.0,
+                      150
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      13,
+                      380110,
+                      '380110-Tap Publishing Company 174 FOURTH STREET, Crossville',
+                      98828743,
+                      '1/13/2021',
+                      '1/13/2021',
+                      '1/13/2025',
+                      '1',
+                      112.0,
+                      300
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      14,
+                      255010,
+                      '255010-Polk County BOE South Polk Elementary',
+                      66735042,
+                      '1/14/2021',
+                      '1/14/2021',
+                      '1/14/2025',
+                      '1',
+                      113.0,
+                      100
+                  );
+
+INSERT INTO meter (
+                      id,
+                      met_num,
+                      name,
+                      acc_num,
+                      actv_dt,
+                      start_dt,
+                      end_dt,
+                      cycle,
+                      voltage,
+                      nomination
+                  )
+                  VALUES (
+                      15,
+                      400598000,
+                      '400598000-Polk County BOE Polk County High School',
+                      82458544,
+                      '1/15/2021',
+                      '1/15/2021',
+                      '1/15/2025',
+                      '1',
+                      114.0,
+                      100
+                  );
+
+
+-- Table: predictions
+DROP TABLE IF EXISTS predictions;
+
+CREATE TABLE predictions (
+    event_id        INTEGER PRIMARY KEY,
+    evn_num         TEXT,
+    evn_nam         TEXT,
+    start_dt        TEXT,
+    end_dt          TEXT,
+    perf            REAL,
+    nomination      REAL,
+    factor          REAL,
+    unadj_credit    REAL,
+    del_load_dist   REAL,
+    adj_nom         REAL,
+    adj_per_fact    REAL,
+    tot_crdt_paid   REAL,
+    est_vec_dem_sav REAL,
+    event           TEXT,
+    credit_rate     REAL,
+    whisl_dem_cost  REAL,
+    crtd_dt         TEXT,
+    upd_dt          TEXT,
+    customer_id     INTEGER REFERENCES customer (customer_id) 
+);
+
+
+-- Table: rawdata
+DROP TABLE IF EXISTS rawdata;
+
+CREATE TABLE rawdata (
+    id   INTEGER,
+    type TEXT,
+    data BLOB
+);
+
+
+-- Table: ven
+DROP TABLE IF EXISTS ven;
+
+CREATE TABLE ven (
+    ven_id  INTEGER PRIMARY KEY,
+    crtd_dt TEXT,
+    upd_dt  TEXT,
+    vtn_id          REFERENCES vtn (vtn_id) 
+);
+
+
+-- Table: vtn
+DROP TABLE IF EXISTS vtn;
+
+CREATE TABLE vtn (
+    vtn_id  INTEGER PRIMARY KEY,
+    crtd_dt TEXT,
+    upd_dt  TEXT
+);
+
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;

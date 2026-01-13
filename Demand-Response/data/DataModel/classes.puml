@@ -1,0 +1,170 @@
+@@startuml "Demand Response"
+class customer{
+
+    customerid : GUID
+    name: String
+    accnum : Integer
+    mnum : Integer
+    dr_flag : Boolean
+    phone: String
+    cnt_type: Boolean
+    event_day: Boolean
+    Boolean event_check()
+    void time_to_failure()
+}
+
+class meter{
+
+    meterid : GUID
+    accnum : Integer
+    dr_flag : Boolean
+    vol: Decimal
+    event_day: Boolean
+    List meterRead()
+    Boolean event_check()
+    void time_to_failure()    
+}
+
+class vecgen{
+
+    customerid : GUID
+    meterid : GUID
+    today: date
+    Boolean read_dr_config()
+    void time_to_failure()
+    Boolean gen_billing_dt()
+}
+
+class projection{
+
+        eventname: String
+        edate: date
+        Performance: Decimal
+        Nomination: Integer
+        Factor: Decimal
+        Unadjusted_Credit: Decimal
+        Delivered_Load_Reduction: Decimal
+        Adjusted_Nomination: Decimal
+        Adjusted_Performance_Factor: Decimal
+        Total_Credit_Paid: Decimal
+        Estimated_VEC_Demand_Savings: Decimal
+        Credit_Rate: Decimal
+        Whlsl_Demand_Cost: Decimal
+        Boolean performance_calc()
+        Boolean adj_calc()
+        Boolean credit_calc()
+}
+
+class events{
+
+        eventname: String
+        edate: date
+        Performance: Decimal
+        Nomination: Integer
+        Factor: Decimal
+        Unadjusted_Credit: Decimal
+        Delivered_Load_Reduction: Decimal
+        Adjusted_Nomination: Decimal
+        Adjusted_Performance_Factor: Decimal
+        Total_Credit_Paid: Decimal
+        Estimated_VEC_Demand_Savings: Decimal
+        Credit_Rate: Decimal
+        Whlsl_Demand_Cost: Decimal
+        Boolean performance_calc()
+        Boolean adj_calc()
+        Boolean credit_calc()
+}
+class baseline{
+        meternum : Integer
+        startdate : date
+        enddate :date
+        voltage : Decimal
+        void calc_baseline()
+
+}
+class vtn{
+
+vtnid : GUID
+venid : Integer
+Decimal collect_report_value()
+String read_tcp_pkt()
+String read_modbus_pkt()
+void handle_event()
+}
+
+class ven{
+venid : GUID
+Boolean insert_customer()
+Boolean insert_meter()
+Boolean gen_report()
+Boolean on_create_party_registration()
+Boolean on_register_report()
+Boolean on_update_report()
+Boolean event_response_callback()
+Boolean enable_default_logging()
+}
+
+
+class connect{
+db_file: String
+connection create_connection()
+Boolean select_all_config()
+Boolean select_bill_config()
+Boolean select_all_meter()
+Boolean insert_meter()
+Boolean insert_customer()
+Boolean gen_report()
+}
+
+class utility{
+    Decimal genvalidrnd()
+    Decimal genvinalidrnd()
+    Decimal getMsrlimit()
+    Decimal genEthTCPPkt()
+
+}
+
+Class customerui{
+    customerid : GUID
+    name: String
+    accnum : Integer
+    mnum : Integer
+    dr_flag : Boolean
+    phone: String
+    cnt_type: Boolean
+    event_day: Boolean
+    Boolean insert_customer()
+}
+
+class meterUI{
+
+    meterid : GUID
+    accnum : Integer
+    dr_flag : Boolean
+    vol: Decimal
+    event_day: Boolean
+    Boolean insert_meter()
+}
+
+class eventUI{
+
+    eventname : String
+    filename : String
+    Boolean insert_event()
+}
+customer "n" *.. "1" meter
+customer *.. vecgen
+customer *.. projection
+vtn *.. meter
+ven *.. vtn
+meter "1" *.. "n" events
+meter *.. baseline
+connect *.. ven
+connect *.. customer
+connect *.. meter
+connect *.. vecgen
+utility *.. ven
+connect *.. customerui
+connect *.. meterUI
+connect *.. eventUI
+@@enduml
