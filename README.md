@@ -51,9 +51,24 @@ and deep learning models for:
 - Data Processing: Pandas, NumPy
 - Visualization: Matplotlib, Seaborn
 
+
 ## Context
 This project was developed as part of my PhD research in applied machine
 learning for smart grids, demand response, and cyber-physical system security.
+
+## Reproducibility & Research Notes
+- Experiments were conducted using publicly available and benchmark datasets
+- Data preprocessing, feature extraction, and model training steps are documented
+- Random seeds and model configurations are configurable for repeatability
+- Results reported are based on multiple experimental runs
+
+## Research Context
+This work was conducted as part of my PhD research in Computer Engineering,
+focusing on applied machine learning for energy systems and cyber-physical
+system security.
+
+Related peer-reviewed publications are listed in my CV.
+
 
 ## Author
 **Rajesh Manicavasagam**  
