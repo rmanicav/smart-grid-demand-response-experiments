@@ -1,5 +1,8 @@
+# Smart Grid Demand Response Forecasting
+
 ## Overview
 Time-series forecasting of electricity demand using machine learning models.
+
 
 
 
@@ -54,10 +57,11 @@ and deep learning models for:
 - Data Processing: Pandas, NumPy
 - Visualization: Matplotlib, Seaborn
 
-
-## Context
-This project was developed as part of my PhD research in applied machine
-learning for smart grids, demand response, and cyber-physical system security.
+## Project Structure
+data/        -> datasets  
+src/         -> source code  
+results/     -> experiment outputs  
+assets/      -> figures and plots  
 
 ## Reproducibility & Research Notes
 - Experiments were conducted using publicly available and benchmark datasets
@@ -65,12 +69,24 @@ learning for smart grids, demand response, and cyber-physical system security.
 - Random seeds and model configurations are configurable for repeatability
 - Results reported are based on multiple experimental runs
 
+## How to Run
+pip install -r requirements.txt  
+python src/main.py  
+
+
 ## Research Context
 This work was conducted as part of my PhD research in Computer Engineering,
 focusing on applied machine learning for energy systems and cyber-physical
 system security.
 
 Related peer-reviewed publications are listed in my CV.
+
+## Skills Demonstrated
+- Time-series analysis
+- Machine learning for forecasting
+- Anomaly detection
+- Feature engineering
+- Reproducible research workflows
 
 
 ## Author
